@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FC8D76F339836A7B9DA68D8 /* Pods_TaskOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CE9ABEB33CBC6666C5E179 /* Pods_TaskOne.framework */; };
 		E4A105EF2823FBF300F03B85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A105EE2823FBF300F03B85 /* AppDelegate.swift */; };
 		E4A105F12823FBF300F03B85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A105F02823FBF300F03B85 /* SceneDelegate.swift */; };
 		E4A105F32823FBF300F03B85 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A105F22823FBF300F03B85 /* MainTabBarController.swift */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		622CB305B42D955630497A79 /* Pods-TaskOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskOne.debug.xcconfig"; path = "Target Support Files/Pods-TaskOne/Pods-TaskOne.debug.xcconfig"; sourceTree = "<group>"; };
+		71CE9ABEB33CBC6666C5E179 /* Pods_TaskOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A105EB2823FBF300F03B85 /* TaskOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A105EE2823FBF300F03B85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4A105F02823FBF300F03B85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		E4A106122824085C00F03B85 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E4A10615282408B200F03B85 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E4A1061728240ABF00F03B85 /* MovieAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIResponse.swift; sourceTree = "<group>"; };
+		F63527A51F6E0C355F45A059 /* Pods-TaskOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskOne.release.xcconfig"; path = "Target Support Files/Pods-TaskOne/Pods-TaskOne.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,17 +51,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FC8D76F339836A7B9DA68D8 /* Pods_TaskOne.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F5027483922CE726F8CEA17 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				622CB305B42D955630497A79 /* Pods-TaskOne.debug.xcconfig */,
+				F63527A51F6E0C355F45A059 /* Pods-TaskOne.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D347442DABF2FD04C9BAD64D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71CE9ABEB33CBC6666C5E179 /* Pods_TaskOne.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E4A105E22823FBF300F03B85 = {
 			isa = PBXGroup;
 			children = (
 				E4A105ED2823FBF300F03B85 /* TaskOne */,
 				E4A105EC2823FBF300F03B85 /* Products */,
+				9F5027483922CE726F8CEA17 /* Pods */,
+				D347442DABF2FD04C9BAD64D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4A106022823FBF300F03B85 /* Build configuration list for PBXNativeTarget "TaskOne" */;
 			buildPhases = (
+				D7CDC4440BD4409FF3ACEA5B /* [CP] Check Pods Manifest.lock */,
 				E4A105E72823FBF300F03B85 /* Sources */,
 				E4A105E82823FBF300F03B85 /* Frameworks */,
 				E4A105E92823FBF300F03B85 /* Resources */,
+				CAA598372A859B19657093E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,6 +223,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CAA598372A859B19657093E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TaskOne/Pods-TaskOne-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TaskOne/Pods-TaskOne-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TaskOne/Pods-TaskOne-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7CDC4440BD4409FF3ACEA5B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TaskOne-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E4A105E72823FBF300F03B85 /* Sources */ = {
@@ -354,6 +423,7 @@
 		};
 		E4A106032823FBF300F03B85 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 622CB305B42D955630497A79 /* Pods-TaskOne.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -382,6 +452,7 @@
 		};
 		E4A106042823FBF300F03B85 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F63527A51F6E0C355F45A059 /* Pods-TaskOne.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -34,18 +34,7 @@ class SearchViewController: UIViewController{
         MoviesTableView.dataSource = self
         configureUI()
         
-        NetworkService.SharedObject.getMovies(name: "batman") { moviedata, error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    print(error)
-                }
-                if let moviedata = moviedata {
-                    self.MovieArray = moviedata
-                    self.MoviesTableView.reloadData()
-                }
-
-            }
-        }
+        
     }
     
     //MARK: - HELPERS
@@ -69,7 +58,25 @@ class SearchViewController: UIViewController{
 //MARK: - EXTENSIONS
 extension SearchViewController: UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
-        print("Search")
+        guard let Query = searchController.searchBar.text else {return}
+        NetworkService.SharedObject.getMovies(name: Query.trimmingCharacters(in: .whitespaces)) { moviedata, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print(error)
+                }
+                if let moviedata = moviedata {
+                    self.MovieArray = moviedata
+                    self.MoviesTableView.reloadData()
+                }
+
+            }
+        }
+        
+        
+        
+        
+        
+        
     }
 }
 
@@ -81,7 +88,7 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.CELL_ID, for: indexPath) as? MovieCell{
-            cell.updateCell(MovieName: MovieArray[indexPath.row].original_title)
+            cell.updateCell(MovieName: MovieArray[indexPath.row].original_title,MoviePosterURL: MovieArray[indexPath.row].poster_path)
             return cell
         }
 

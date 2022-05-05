@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SDWebImage
 import UIKit
 
 class MovieCell: UITableViewCell{
@@ -15,13 +16,14 @@ class MovieCell: UITableViewCell{
     
     private var MoviePosterImageView: UIImageView = {
         let ImageView = UIImageView()
-        ImageView.backgroundColor = .purple
+        //ImageView.backgroundColor = .purple
         return ImageView
     }()
     
     private var MovieTitleLabel: UILabel = {
         let TitleLabel = UILabel(frame: .zero)
         TitleLabel.text = "MOVIE_NAME_HERE"
+        TitleLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         TitleLabel.numberOfLines = 0
         return TitleLabel
     }()
@@ -46,19 +48,26 @@ class MovieCell: UITableViewCell{
         MoviePosterImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         MoviePosterImageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         MoviePosterImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        MoviePosterImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        MoviePosterImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        MoviePosterImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        MoviePosterImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         
         addSubview(MovieTitleLabel)
         MovieTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        MovieTitleLabel.topAnchor.constraint(equalTo: topAnchor,constant: 100).isActive = true
+        MovieTitleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         MovieTitleLabel.leftAnchor.constraint(equalTo: MoviePosterImageView.rightAnchor,constant: 10).isActive = true
         MovieTitleLabel.widthAnchor.constraint(equalToConstant: frame.size.width/1.2).isActive = true
+      
     }
     
-    func updateCell(MovieName: String?){
-        if let MovieName = MovieName {
+    func updateCell(MovieName: String?,MoviePosterURL: String?){
+        
+        if let MovieName = MovieName , let MoviePosterURL = MoviePosterURL{
+            
+            guard let POSTER_URL = URL(string: "https://image.tmdb.org/t/p/w500/\(MoviePosterURL)") else{return }
+            
             self.MovieTitleLabel.text = MovieName
+            
+            self.MoviePosterImageView.sd_setImage(with:POSTER_URL)
         }
     }
     
