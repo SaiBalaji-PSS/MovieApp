@@ -20,7 +20,7 @@ class SearchViewController: UIViewController{
     
     private var MoviesTableView: UITableView = {
         let tableview = UITableView(frame: .zero, style: .plain)
-        tableview.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableview.register(MovieCell.self, forCellReuseIdentifier:MovieCell.CELL_ID)
         return tableview
     }()
     
@@ -65,8 +65,10 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
         return 10
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "HELLO"
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.CELL_ID, for: indexPath) as? MovieCell{
+            return cell
+        }
+
+        return UITableViewCell()
     }
 }
