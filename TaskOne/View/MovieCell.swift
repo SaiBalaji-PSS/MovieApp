@@ -56,5 +56,10 @@ class MovieCell: UITableViewCell{
         MovieTitleLabel.widthAnchor.constraint(equalToConstant: frame.size.width/1.2).isActive = true
     }
     
+    func updateCell(MovieName: String?){
+        if let MovieName = MovieName {
+            self.MovieTitleLabel.text = MovieName
+        }
+    }
     
 }

@@ -11,6 +11,8 @@ import UIKit
 class SearchViewController: UIViewController{
     
     //MARK: - PROPERTIES
+    private var MovieArray = [MovieData]()
+    
     private var SearchBarController: UISearchController = {
        let searchbarcontroller = UISearchController()
         searchbarcontroller.searchBar.placeholder = "Enter a movie name"
@@ -32,9 +34,22 @@ class SearchViewController: UIViewController{
         MoviesTableView.dataSource = self
         configureUI()
         
+        NetworkService.SharedObject.getMovies(name: "batman") { moviedata, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print(error)
+                }
+                if let moviedata = moviedata {
+                    self.MovieArray = moviedata
+                    self.MoviesTableView.reloadData()
+                }
+
+            }
+        }
     }
     
     //MARK: - HELPERS
+    
     func configureUI(){
         view.backgroundColor = .systemBackground
         SearchBarController.searchResultsUpdater = self
@@ -62,10 +77,11 @@ extension SearchViewController: UISearchResultsUpdating{
 extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return MovieArray.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.CELL_ID, for: indexPath) as? MovieCell{
+            cell.updateCell(MovieName: MovieArray[indexPath.row].original_title)
             return cell
         }
 

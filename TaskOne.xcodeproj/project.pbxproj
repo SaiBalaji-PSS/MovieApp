@@ -18,6 +18,9 @@
 		E4A1060C2823FC7B00F03B85 /* SavedMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A1060B2823FC7B00F03B85 /* SavedMoviesViewController.swift */; };
 		E4A1060E2823FD2100F03B85 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A1060D2823FD2100F03B85 /* MovieDetailViewController.swift */; };
 		E4A106102824058200F03B85 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A1060F2824058200F03B85 /* MovieCell.swift */; };
+		E4A106132824085C00F03B85 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A106122824085C00F03B85 /* NetworkService.swift */; };
+		E4A10616282408B200F03B85 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A10615282408B200F03B85 /* Constants.swift */; };
+		E4A1061828240ABF00F03B85 /* MovieAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A1061728240ABF00F03B85 /* MovieAPIResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		E4A1060B2823FC7B00F03B85 /* SavedMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMoviesViewController.swift; sourceTree = "<group>"; };
 		E4A1060D2823FD2100F03B85 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		E4A1060F2824058200F03B85 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		E4A106122824085C00F03B85 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E4A10615282408B200F03B85 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E4A1061728240ABF00F03B85 /* MovieAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,8 @@
 		E4A105ED2823FBF300F03B85 /* TaskOne */ = {
 			isa = PBXGroup;
 			children = (
+				E4A10614282408A800F03B85 /* Constants */,
+				E4A106112824084A00F03B85 /* Service */,
 				E4A106072823FC0E00F03B85 /* Controller */,
 				E4A106062823FC0700F03B85 /* View */,
 				E4A106052823FC0200F03B85 /* Model */,
@@ -83,6 +91,7 @@
 		E4A106052823FC0200F03B85 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E4A1061728240ABF00F03B85 /* MovieAPIResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -104,6 +113,22 @@
 				E4A1060D2823FD2100F03B85 /* MovieDetailViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E4A106112824084A00F03B85 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E4A106122824085C00F03B85 /* NetworkService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E4A10614282408A800F03B85 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				E4A10615282408B200F03B85 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,8 +204,11 @@
 			files = (
 				E4A106092823FC4B00F03B85 /* SearchViewController.swift in Sources */,
 				E4A1060C2823FC7B00F03B85 /* SavedMoviesViewController.swift in Sources */,
+				E4A1061828240ABF00F03B85 /* MovieAPIResponse.swift in Sources */,
 				E4A106102824058200F03B85 /* MovieCell.swift in Sources */,
 				E4A105F32823FBF300F03B85 /* MainTabBarController.swift in Sources */,
+				E4A106132824085C00F03B85 /* NetworkService.swift in Sources */,
+				E4A10616282408B200F03B85 /* Constants.swift in Sources */,
 				E4A105F92823FBF300F03B85 /* TaskOne.xcdatamodeld in Sources */,
 				E4A1060E2823FD2100F03B85 /* MovieDetailViewController.swift in Sources */,
 				E4A105EF2823FBF300F03B85 /* AppDelegate.swift in Sources */,
