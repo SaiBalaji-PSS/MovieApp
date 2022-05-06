@@ -99,7 +99,9 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
         let MovieDetailViewController = MovieDetailViewController()
         MovieDetailViewController.MovieName = MovieArray[indexPath.row].original_title
         MovieDetailViewController.MoviePosterURL =   MovieArray[indexPath.row].poster_path
-        
+        MovieDetailViewController.MovieRating = MovieArray[indexPath.row].vote_average
+        MovieDetailViewController.MovieDescription = MovieArray[indexPath.row].overview
+        MovieDetailViewController.MovieReleaseDate = MovieArray[indexPath.row].release_date
         navigationController?.pushViewController(MovieDetailViewController, animated: true)
     }
 }
