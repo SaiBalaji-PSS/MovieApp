@@ -56,6 +56,17 @@ class MovieDetailViewController: UIViewController{
         label.numberOfLines = 0
         return label
     }()
+    private var AddToWatchListButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.systemPink
+        button.layer.cornerRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.setTitle("Add To WatchList", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.addTarget(MovieDetailViewController.self, action: #selector(watchListButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -66,7 +77,7 @@ class MovieDetailViewController: UIViewController{
     func configureUI(){
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .systemBackground
-        
+        navigationItem.title = "Movie Details"
         view.addSubview(TrailerPreviewView)
         TrailerPreviewView.translatesAutoresizingMaskIntoConstraints = false
         TrailerPreviewView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
@@ -103,6 +114,12 @@ class MovieDetailViewController: UIViewController{
         MovieReleaseDateLabel.topAnchor.constraint(equalTo: MovieRatingLabel.bottomAnchor,constant: 2).isActive = true
         MovieReleaseDateLabel.leftAnchor.constraint(equalTo: PosterImageView.rightAnchor,constant: 5).isActive = true
         
+        view.addSubview(AddToWatchListButton)
+        AddToWatchListButton.translatesAutoresizingMaskIntoConstraints = false
+        AddToWatchListButton.topAnchor.constraint(equalTo: MovieReleaseDateLabel.bottomAnchor,constant: 20).isActive = true
+        AddToWatchListButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        AddToWatchListButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        AddToWatchListButton.leftAnchor.constraint(equalTo: PosterImageView.rightAnchor).isActive = true
     }
     
     func getMovieTrailer(){
@@ -128,6 +145,11 @@ class MovieDetailViewController: UIViewController{
             self.MovieReleaseDateLabel.text = MovieReleaseDate
             PosterImageView.sd_setImage(with:URL(string:"https://image.tmdb.org/t/p/w500/\(MoviePosterURL)"))
         }
+        
+    }
+    
+    @objc
+    func watchListButtonPressed(){
         
     }
 }
