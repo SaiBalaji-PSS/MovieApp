@@ -78,7 +78,7 @@ class MovieCell: UITableViewCell{
         
         if let MovieName = MovieName , let MoviePosterURL = MoviePosterURL , let Rating = Rating{
             
-            guard let POSTER_URL = URL(string: "https://image.tmdb.org/t/p/w500/\(MoviePosterURL)") else{return }
+            guard let POSTER_URL = URL(string: Constants.POSTER_IMAGE_URL+MoviePosterURL) else{return }
             
             self.MovieTitleLabel.text = MovieName
             self.MovieRatingLabel.text = "★\(Rating)"

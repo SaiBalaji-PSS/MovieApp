@@ -39,6 +39,14 @@ class MovieDetailViewController: UIViewController{
         label.textColor = UIColor.darkGray
         return label
     }()
+    private var MovieDescriptionTextBox: UITextView = {
+        let textview = UITextView(frame: .zero)
+        textview.allowsEditingTextAttributes = false
+        
+        textview.isEditable = false
+        textview.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        return textview
+    }()
     private var MovieDescriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "MOVIE_DESCRIPTION_HERE"
@@ -63,7 +71,6 @@ class MovieDetailViewController: UIViewController{
         button.layer.shadowColor = UIColor.black.cgColor
         button.setTitle("Add To WatchList", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.addTarget(MovieDetailViewController.self, action: #selector(watchListButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -102,21 +109,22 @@ class MovieDetailViewController: UIViewController{
         MovieRatingLabel.leftAnchor.constraint(equalTo: PosterImageView.rightAnchor,constant: 5).isActive = true
         MovieRatingLabel.topAnchor.constraint(equalTo: MovieTitleLabel.bottomAnchor,constant: 10).isActive = true
         
-        view.addSubview(MovieDescriptionLabel)
-        MovieDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        MovieDescriptionLabel.heightAnchor.constraint(equalToConstant: view.frame.size.height/4).isActive = true
-        MovieDescriptionLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
-        MovieDescriptionLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
-        MovieDescriptionLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        view.addSubview(MovieDescriptionTextBox)
+        MovieDescriptionTextBox.translatesAutoresizingMaskIntoConstraints = false
+        MovieDescriptionTextBox.heightAnchor.constraint(equalToConstant: view.frame.size.height/5).isActive = true
+        MovieDescriptionTextBox.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        MovieDescriptionTextBox.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        MovieDescriptionTextBox.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
         view.addSubview(MovieReleaseDateLabel)
         MovieReleaseDateLabel.translatesAutoresizingMaskIntoConstraints = false
         MovieReleaseDateLabel.topAnchor.constraint(equalTo: MovieRatingLabel.bottomAnchor,constant: 2).isActive = true
         MovieReleaseDateLabel.leftAnchor.constraint(equalTo: PosterImageView.rightAnchor,constant: 5).isActive = true
         
+        AddToWatchListButton.addTarget(self, action: #selector(watchListButtonPressed), for: .touchUpInside)
         view.addSubview(AddToWatchListButton)
         AddToWatchListButton.translatesAutoresizingMaskIntoConstraints = false
-        AddToWatchListButton.topAnchor.constraint(equalTo: MovieReleaseDateLabel.bottomAnchor,constant: 20).isActive = true
+        AddToWatchListButton.topAnchor.constraint(equalTo: MovieReleaseDateLabel.bottomAnchor,constant: 10).isActive = true
         AddToWatchListButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
         AddToWatchListButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         AddToWatchListButton.leftAnchor.constraint(equalTo: PosterImageView.rightAnchor).isActive = true
@@ -141,15 +149,15 @@ class MovieDetailViewController: UIViewController{
         if let MoviePosterURL = MoviePosterURL , let MovieName = MovieName , let MovieRating = MovieRating , let MovieDescription = MovieDescription , let MovieReleaseDate = MovieReleaseDate {
             self.MovieTitleLabel.text = MovieName
             self.MovieRatingLabel.text = "★\(MovieRating)"
-            self.MovieDescriptionLabel.text = MovieDescription
+            self.MovieDescriptionTextBox.text = MovieDescription
             self.MovieReleaseDateLabel.text = MovieReleaseDate
-            PosterImageView.sd_setImage(with:URL(string:"https://image.tmdb.org/t/p/w500/\(MoviePosterURL)"))
+            PosterImageView.sd_setImage(with:URL(string:Constants.POSTER_IMAGE_URL+(MoviePosterURL)))
         }
         
     }
     
     @objc
     func watchListButtonPressed(){
-        
+        print("Press")
     }
 }
