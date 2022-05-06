@@ -20,10 +20,18 @@ class MovieCell: UITableViewCell{
         return ImageView
     }()
     
+    private var MovieRatingLabel: UILabel = {
+        let RatingLabel = UILabel(frame: .zero)
+        RatingLabel.text = "RATING_HERE"
+        RatingLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        RatingLabel.numberOfLines = 0
+        return RatingLabel
+    }()
+    
     private var MovieTitleLabel: UILabel = {
         let TitleLabel = UILabel(frame: .zero)
         TitleLabel.text = "MOVIE_NAME_HERE"
-        TitleLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        TitleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         TitleLabel.numberOfLines = 0
         return TitleLabel
     }()
@@ -54,19 +62,26 @@ class MovieCell: UITableViewCell{
         addSubview(MovieTitleLabel)
         MovieTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         MovieTitleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        MovieTitleLabel.leftAnchor.constraint(equalTo: MoviePosterImageView.rightAnchor,constant: 10).isActive = true
+        MovieTitleLabel.leftAnchor.constraint(equalTo: MoviePosterImageView.rightAnchor,constant: 30).isActive = true
         MovieTitleLabel.widthAnchor.constraint(equalToConstant: frame.size.width/1.2).isActive = true
+        
+        addSubview(MovieRatingLabel)
+        MovieRatingLabel.translatesAutoresizingMaskIntoConstraints = false
+        MovieRatingLabel.centerYAnchor.constraint(equalTo: centerYAnchor,constant: 200).isActive = true
+        MovieRatingLabel.leftAnchor.constraint(equalTo: MoviePosterImageView.rightAnchor,constant: 40).isActive = true
+        MovieRatingLabel.widthAnchor.constraint(equalToConstant: frame.size.width).isActive = true
+        
       
     }
     
-    func updateCell(MovieName: String?,MoviePosterURL: String?){
+    func updateCell(MovieName: String?,MoviePosterURL: String?,Rating: Double?){
         
-        if let MovieName = MovieName , let MoviePosterURL = MoviePosterURL{
+        if let MovieName = MovieName , let MoviePosterURL = MoviePosterURL , let Rating = Rating{
             
             guard let POSTER_URL = URL(string: "https://image.tmdb.org/t/p/w500/\(MoviePosterURL)") else{return }
             
             self.MovieTitleLabel.text = MovieName
-            
+            self.MovieRatingLabel.text = "★\(Rating)"
             self.MoviePosterImageView.sd_setImage(with:POSTER_URL)
         }
     }

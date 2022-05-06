@@ -13,11 +13,7 @@ class NetworkService{
     
     func getMovies(name MovieName: String,onCompletion:@escaping([MovieData]?,Error?)->Void){
         
-        
         guard let FormatedMovieName = MovieName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)  else{return}
-        
-        
-        
         
         if let SEARCH_URL = URL(string:Constants.BASE_URL + FormatedMovieName){
             
@@ -39,18 +35,36 @@ class NetworkService{
                 
                 }
                 
-                
-                
-                
-                
             }
             
             task.resume()
+        }
+    }
+    
+    func getMovieInfoFromYoutube(Query: String,onCompletion:@escaping([Item]?,Error?)->Void){
+        guard let FormattedQuery = Query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return }
+        if let YOUTUBE_URL = URL(string:"https://youtube.googleapis.com/youtube/v3/search?q=\(FormattedQuery)&key=\(Constants.YOUTUBE_API_KEY)") {
+            let task = session.dataTask(with: YOUTUBE_URL) { data, response, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    onCompletion(nil,error)
+                }
+                if let data = data {
+                    do{
+                        let DecodedData = try JSONDecoder().decode(YoutubeSearchResponse.self, from: data)
+                        onCompletion(DecodedData.items,nil)
+                    }
+                    catch{
+                        print("ERROR\(error)")
+                    }
+                }
+            }
+            task.resume()
+            
+            
             
             
         }
-        
-        
+//https://youtube.googleapis.com/youtube/v3/search?q=\(Query)&key=\(Constants.YOUTUBE_API_KEY)
     }
-    
 }

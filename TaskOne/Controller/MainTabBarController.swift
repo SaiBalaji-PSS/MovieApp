@@ -18,16 +18,17 @@ class MainTabBarController: UITabBarController {
 
     //MARK: - HELPERS
     func configureUI(){
-        let SearchViewController = createViewControllersForTabBar(ImageName: "magnifyingglass", RootViewController: SearchViewController())
+        let SearchViewController = createViewControllersForTabBar(ImageName: "magnifyingglass", RootViewController: SearchViewController(),TabBarTitle: "Search")
         
-        let SavedMovieController = createViewControllersForTabBar(ImageName: "square.and.arrow.down", RootViewController: SavedMoviesViewController())
+        let SavedMovieController = createViewControllersForTabBar(ImageName: "square.and.arrow.down", RootViewController: SavedMoviesViewController(),TabBarTitle: "Downloads")
 
         viewControllers = [SearchViewController,SavedMovieController]
     }
     
-    func createViewControllersForTabBar(ImageName: String,RootViewController: UIViewController) -> UINavigationController{
+    func createViewControllersForTabBar(ImageName: String,RootViewController: UIViewController,TabBarTitle: String) -> UINavigationController{
         let ViewController = UINavigationController(rootViewController: RootViewController)
         ViewController.tabBarItem.image = UIImage(systemName: ImageName)
+        ViewController.tabBarItem.title = TabBarTitle
         return ViewController
     }
 

@@ -10,9 +10,10 @@ import UIKit
 
 class SavedMoviesViewController: UIViewController{
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Saved"
+        navigationItem.title = "Downloads"
         view.backgroundColor = .systemBackground
     }
 }

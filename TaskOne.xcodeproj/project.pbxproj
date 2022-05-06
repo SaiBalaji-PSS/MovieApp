@@ -22,6 +22,7 @@
 		E4A106132824085C00F03B85 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A106122824085C00F03B85 /* NetworkService.swift */; };
 		E4A10616282408B200F03B85 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A10615282408B200F03B85 /* Constants.swift */; };
 		E4A1061828240ABF00F03B85 /* MovieAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A1061728240ABF00F03B85 /* MovieAPIResponse.swift */; };
+		E4A50B302824BF2600B3A15F /* YoutubeAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A50B2F2824BF2600B3A15F /* YoutubeAPIResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		E4A106122824085C00F03B85 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E4A10615282408B200F03B85 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E4A1061728240ABF00F03B85 /* MovieAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIResponse.swift; sourceTree = "<group>"; };
+		E4A50B2F2824BF2600B3A15F /* YoutubeAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeAPIResponse.swift; sourceTree = "<group>"; };
 		F63527A51F6E0C355F45A059 /* Pods-TaskOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskOne.release.xcconfig"; path = "Target Support Files/Pods-TaskOne/Pods-TaskOne.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +66,6 @@
 				622CB305B42D955630497A79 /* Pods-TaskOne.debug.xcconfig */,
 				F63527A51F6E0C355F45A059 /* Pods-TaskOne.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -117,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				E4A1061728240ABF00F03B85 /* MovieAPIResponse.swift */,
+				E4A50B2F2824BF2600B3A15F /* YoutubeAPIResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,6 +278,7 @@
 				E4A1061828240ABF00F03B85 /* MovieAPIResponse.swift in Sources */,
 				E4A106102824058200F03B85 /* MovieCell.swift in Sources */,
 				E4A105F32823FBF300F03B85 /* MainTabBarController.swift in Sources */,
+				E4A50B302824BF2600B3A15F /* YoutubeAPIResponse.swift in Sources */,
 				E4A106132824085C00F03B85 /* NetworkService.swift in Sources */,
 				E4A10616282408B200F03B85 /* Constants.swift in Sources */,
 				E4A105F92823FBF300F03B85 /* TaskOne.xcdatamodeld in Sources */,

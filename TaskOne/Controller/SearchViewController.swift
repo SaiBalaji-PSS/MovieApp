@@ -43,6 +43,7 @@ class SearchViewController: UIViewController{
         view.backgroundColor = .systemBackground
         SearchBarController.searchResultsUpdater = self
         navigationItem.title = "Search"
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = SearchBarController
         
         
@@ -88,10 +89,17 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.CELL_ID, for: indexPath) as? MovieCell{
-            cell.updateCell(MovieName: MovieArray[indexPath.row].original_title,MoviePosterURL: MovieArray[indexPath.row].poster_path)
+            cell.updateCell(MovieName: MovieArray[indexPath.row].original_title,MoviePosterURL: MovieArray[indexPath.row].poster_path,Rating: MovieArray[indexPath.row].vote_average)
             return cell
         }
 
         return UITableViewCell()
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let MovieDetailViewController = MovieDetailViewController()
+        MovieDetailViewController.MovieName = MovieArray[indexPath.row].original_title
+        MovieDetailViewController.MoviePosterURL =   MovieArray[indexPath.row].poster_path
+        
+        navigationController?.pushViewController(MovieDetailViewController, animated: true)
     }
 }
