@@ -89,7 +89,7 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.CELL_ID, for: indexPath) as? MovieCell{
-            cell.updateCell(MovieName: MovieArray[indexPath.row].original_title,MoviePosterURL: MovieArray[indexPath.row].poster_path,Rating: MovieArray[indexPath.row].vote_average)
+            cell.updateCell(MovieName: MovieArray[indexPath.row].original_title,MoviePosterURL: MovieArray[indexPath.row].poster_path,Rating: MovieArray[indexPath.row].vote_average,ImageBinaryData: nil)
             return cell
         }
 

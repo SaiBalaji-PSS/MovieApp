@@ -14,13 +14,13 @@ class MovieCell: UITableViewCell{
     
     static let CELL_ID = "MOVIE_CELL"
     
-    private var MoviePosterImageView: UIImageView = {
+     var MoviePosterImageView: UIImageView = {
         let ImageView = UIImageView()
         //ImageView.backgroundColor = .purple
         return ImageView
     }()
     
-    private var MovieRatingLabel: UILabel = {
+     var MovieRatingLabel: UILabel = {
         let RatingLabel = UILabel(frame: .zero)
         RatingLabel.text = "RATING_HERE"
         RatingLabel.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
@@ -28,7 +28,7 @@ class MovieCell: UITableViewCell{
         return RatingLabel
     }()
     
-    private var MovieTitleLabel: UILabel = {
+     var MovieTitleLabel: UILabel = {
         let TitleLabel = UILabel(frame: .zero)
         TitleLabel.text = "MOVIE_NAME_HERE"
         TitleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -74,7 +74,7 @@ class MovieCell: UITableViewCell{
       
     }
     
-    func updateCell(MovieName: String?,MoviePosterURL: String?,Rating: Double?){
+    func updateCell(MovieName: String?,MoviePosterURL: String?,Rating: Double?,ImageBinaryData: Data?){
         
         if let MovieName = MovieName , let MoviePosterURL = MoviePosterURL , let Rating = Rating{
             
