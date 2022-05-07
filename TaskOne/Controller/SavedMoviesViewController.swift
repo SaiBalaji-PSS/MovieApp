@@ -63,7 +63,9 @@ extension SavedMoviesViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150.0
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     //swiple action for tableview cells
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let ShareAction = UITableViewRowAction(style: .normal, title: "Share") { action, indexpath in
@@ -72,7 +74,18 @@ extension SavedMoviesViewController: UITableViewDelegate,UITableViewDataSource{
         }
         let DeleteAction = UITableViewRowAction(style: .destructive, title: "Remove") { action, indexpath in
             print("DELETE")
+            let ItemToDelete = self.SavedMovieArray[indexpath.row]
+        
+            DatabaseService.sharedObj.deleteData(MovieToBeDeleted: ItemToDelete) { error in
+                if let error = error {
+                    self.showAltert(Message: error.localizedDescription)
+                    
+                }
+                self.fetchMovies()
+            }
+            
         }
+        
         ShareAction.backgroundColor = .green
         return [ShareAction,DeleteAction]
     }
@@ -108,7 +121,7 @@ extension SavedMoviesViewController{
     //Display share sheet to share movie info
     func ShowShareSheet(MovieName: String?,MovieDescription: String?,MovieTrailerURL: String?){
         if let MovieName = MovieName , let MovieDescription = MovieDescription , let MovieTrailerURL = MovieTrailerURL{
-            let ActivityViewController = UIActivityViewController(activityItems: [MovieName,MovieDescription,MovieTrailerURL], applicationActivities: nil)
+            let ActivityViewController = UIActivityViewController(activityItems: [MovieName + "\n\n","Description: \(MovieDescription)","YoutubeURL: \(MovieTrailerURL)"], applicationActivities: nil)
             present(ActivityViewController, animated: true)
         }
         

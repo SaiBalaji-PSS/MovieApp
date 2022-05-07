@@ -37,4 +37,16 @@ class DatabaseService{
             onCompletion(nil,error)
         }
     }
+    
+    func deleteData(MovieToBeDeleted: Movie,onCompletion:@escaping(Error?)->Void){
+        context.delete(MovieToBeDeleted)
+        do{
+            try context.save()
+            onCompletion(nil)
+        }
+        catch{
+            print(error)
+            onCompletion(error)
+        }
+    }
 }
