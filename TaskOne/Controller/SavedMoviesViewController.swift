@@ -64,16 +64,30 @@ extension SavedMoviesViewController: UITableViewDelegate,UITableViewDataSource{
         return 150.0
     }
     
+
+    
+    
+}
+
+extension SavedMoviesViewController{
+    
     func fetchMovies(){
-        do{
-           SavedMovieArray = try context.fetch(Movie.fetchRequest())
-            //print("MOVIES \(SavedMovieArray.first?.movieRating)")
-            DispatchQueue.main.async {
-                self.MoviesTableView.reloadData()
+        DatabaseService.sharedObj.readData { movies, error in
+            if let error = error {
+                self.showAltert(Message: error.localizedDescription)
+            }
+            if let movies = movies {
+                self.SavedMovieArray = movies
+                DispatchQueue.main.async {
+                    self.MoviesTableView.reloadData()
+                }
             }
         }
-        catch{
-            print(error)
-        }
+    }
+    
+    func showAltert(Message: String){
+        let avc = UIAlertController(title: "Info", message: Message, preferredStyle: .alert)
+        avc.addAction(UIAlertAction(title: "Ok", style: .default))
+        present(avc, animated: true)
     }
 }

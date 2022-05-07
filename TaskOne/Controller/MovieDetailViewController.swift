@@ -162,18 +162,8 @@ class MovieDetailViewController: UIViewController{
     
     @objc func watchListButtonPressed(){
         if let MovieName = MovieName , let MovieDescription = MovieDescription , let MovieRating = MovieRating , let JPEGData = PosterImageView.image?.jpegData(compressionQuality: 1.0) {
-            let WatchListedMovie = Movie(context: context)
-            WatchListedMovie.movieName = MovieName
-            WatchListedMovie.movieDescription = MovieDescription
-            WatchListedMovie.movieRating = MovieRating
-            WatchListedMovie.imageData = JPEGData
             
-            do{
-                try context.save()
-            }
-            catch{
-                print(error)
-            }
+            DatabaseService.sharedObj.saveData(MovieName: MovieName, MovieDescription: MovieDescription, MovieRating: MovieRating, JPEGData: JPEGData)
             
         }
         
