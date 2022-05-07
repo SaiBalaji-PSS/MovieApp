@@ -9,7 +9,7 @@
 
 
 ## Features
-* Search for the movies you wish to watch.x
+* Search for the movies you wish to watch.
 * Know about the Movie rating,overview,release date.
 * Watch the movie trailer within the app
 * Add the movies to your watch list with persistent storage.
