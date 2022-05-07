@@ -16,6 +16,12 @@
 * Share your watch list movies with your friends using social media(Whatsapp,iMessage,Twitter etc)
 * Dark mode support (iOS 13+ required)
 
+## How to run
+* Clone the repo
+* Open TaskOne.xcworkspace in latest version of Xcode on a mac with internet connection
+* Wait for the dependencies to complete indexing
+* Build and Run the project in iPhone simulator(Not iPod) by pressing Command + R
+
 ## ScreenShots
 <img width="600" height = "600" alt="export3DD64541-05C7-475E-96E5-0B172F7459D9" src="https://user-images.githubusercontent.com/51410810/167257550-67a560f3-c57c-4d54-8374-6403b041dfee.png">
 <img width="600" height = "600 "alt="export68C410D2-650A-48FA-A3F7-DCF6EAEDE867" src="https://user-images.githubusercontent.com/51410810/167257640-e178f50b-3e6b-4793-a663-8daff8acd770.png">
@@ -26,10 +32,6 @@
 
 <img width="600" height = "600" alt="export3950C003-E439-4F1D-9199-460B8EB4D9A7" src="https://user-images.githubusercontent.com/51410810/167258075-a4f7490d-4473-44e6-9d91-eadc63fba0a4.png">
 
-## How to run
-* Clone the repo
-* Open TaskOne.xcworkspace in latest version of Xcode on a mac with internet connection
-* Wait for the dependencies to complete indexing
-* Build and Run the project in iPhone simulator(Not iPod) by pressing Command + R
+
 
 
