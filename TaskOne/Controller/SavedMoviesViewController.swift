@@ -64,13 +64,26 @@ extension SavedMoviesViewController: UITableViewDelegate,UITableViewDataSource{
         return 150.0
     }
     
+    //swiple action for tableview cells
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let ShareAction = UITableViewRowAction(style: .normal, title: "Share") { action, indexpath in
+            print("Share")
+            self.ShowShareSheet(MovieName: self.SavedMovieArray[indexpath.row].movieName, MovieDescription: self.SavedMovieArray[indexpath.row].movieDescription,MovieTrailerURL: self.SavedMovieArray[indexpath.row].youtubeURL)
+        }
+        let DeleteAction = UITableViewRowAction(style: .destructive, title: "Remove") { action, indexpath in
+            print("DELETE")
+        }
+        ShareAction.backgroundColor = .green
+        return [ShareAction,DeleteAction]
+    }
+    
 
     
     
 }
 
 extension SavedMoviesViewController{
-    
+    //Fetch data from CoreData
     func fetchMovies(){
         DatabaseService.sharedObj.readData { movies, error in
             if let error = error {
@@ -85,9 +98,21 @@ extension SavedMoviesViewController{
         }
     }
     
+    
     func showAltert(Message: String){
         let avc = UIAlertController(title: "Info", message: Message, preferredStyle: .alert)
         avc.addAction(UIAlertAction(title: "Ok", style: .default))
         present(avc, animated: true)
     }
+    
+    //Display share sheet to share movie info
+    func ShowShareSheet(MovieName: String?,MovieDescription: String?,MovieTrailerURL: String?){
+        if let MovieName = MovieName , let MovieDescription = MovieDescription , let MovieTrailerURL = MovieTrailerURL{
+            let ActivityViewController = UIActivityViewController(activityItems: [MovieName,MovieDescription,MovieTrailerURL], applicationActivities: nil)
+            present(ActivityViewController, animated: true)
+        }
+        
+    }
+    
+    
 }

@@ -11,7 +11,7 @@ import SDWebImage
 import UIKit
 import WebKit
 
-let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
 
 class MovieDetailViewController: UIViewController{
     
@@ -21,6 +21,8 @@ class MovieDetailViewController: UIViewController{
     var MoviePosterURL: String?
     var MovieRating: Double?
     var MovieReleaseDate: String?
+    private var MovieTrailerURL: String?
+    
     private var TrailerPreviewView: WKWebView = WKWebView()
     private var PosterImageView: UIImageView = {
         var ImageView = UIImageView()
@@ -142,6 +144,7 @@ class MovieDetailViewController: UIViewController{
                         print(error)
                     }
                     if let VideoID = VideoData?.first?.id.videoID{
+                        self.MovieTrailerURL = "\(Constants.YOUTUBE_EMBED_URL)\(VideoID)"
                         self.TrailerPreviewView.load(URLRequest(url: URL(string:"\(Constants.YOUTUBE_EMBED_URL)\(VideoID)")!))
                     }
                 }
@@ -161,9 +164,9 @@ class MovieDetailViewController: UIViewController{
     
     
     @objc func watchListButtonPressed(){
-        if let MovieName = MovieName , let MovieDescription = MovieDescription , let MovieRating = MovieRating , let JPEGData = PosterImageView.image?.jpegData(compressionQuality: 1.0) {
+        if let MovieName = MovieName , let MovieDescription = MovieDescription , let MovieRating = MovieRating , let JPEGData = PosterImageView.image?.jpegData(compressionQuality: 1.0) , let MovieTrailerURL = MovieTrailerURL {
             
-            DatabaseService.sharedObj.saveData(MovieName: MovieName, MovieDescription: MovieDescription, MovieRating: MovieRating, JPEGData: JPEGData)
+            DatabaseService.sharedObj.saveData(MovieName: MovieName, MovieDescription: MovieDescription, MovieRating: MovieRating, JPEGData: JPEGData,YouTubeURL: MovieTrailerURL)
             
         }
         

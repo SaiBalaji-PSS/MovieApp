@@ -5,8 +5,9 @@
         <attribute name="movieDescription" optional="YES" attributeType="String"/>
         <attribute name="movieName" optional="YES" attributeType="String"/>
         <attribute name="movieRating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="youtubeURL" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Movie" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Movie" positionX="-63" positionY="-18" width="128" height="104"/>
     </elements>
 </model>
