@@ -24,7 +24,7 @@
 
 <img width="600" height = "600" alt="exportC3A3FFCB-1EF4-49F8-8540-93879D459289" src="https://user-images.githubusercontent.com/51410810/167257999-406d87b9-6541-42d1-ad96-73506a2b9d7b.png">
 
-<img width="400" height = "400" alt="export3950C003-E439-4F1D-9199-460B8EB4D9A7" src="https://user-images.githubusercontent.com/51410810/167258075-a4f7490d-4473-44e6-9d91-eadc63fba0a4.png">
+<img width="600" height = "600" alt="export3950C003-E439-4F1D-9199-460B8EB4D9A7" src="https://user-images.githubusercontent.com/51410810/167258075-a4f7490d-4473-44e6-9d91-eadc63fba0a4.png">
 
 ## How to run
 * Clone the repo
