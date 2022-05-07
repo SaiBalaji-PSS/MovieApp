@@ -67,14 +67,16 @@ extension SavedMoviesViewController: UITableViewDelegate,UITableViewDataSource{
         tableView.deselectRow(at: indexPath, animated: true)
     }
     //swiple action for tableview cells
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let ShareAction = UITableViewRowAction(style: .normal, title: "Share") { action, indexpath in
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let ShareAction = UIContextualAction(style: .normal, title: "Share", handler: { action, view, _ in
             print("Share")
-            self.ShowShareSheet(MovieName: self.SavedMovieArray[indexpath.row].movieName, MovieDescription: self.SavedMovieArray[indexpath.row].movieDescription,MovieTrailerURL: self.SavedMovieArray[indexpath.row].youtubeURL)
-        }
-        let DeleteAction = UITableViewRowAction(style: .destructive, title: "Remove") { action, indexpath in
+            self.ShowShareSheet(MovieName: self.SavedMovieArray[indexPath.row].movieName, MovieDescription: self.SavedMovieArray[indexPath.row].movieDescription,MovieTrailerURL: self.SavedMovieArray[indexPath.row].youtubeURL)
+        })
+        
+        let DeleteAction = UIContextualAction(style: .destructive, title: "Remove") { action, view, _ in
             print("DELETE")
-            let ItemToDelete = self.SavedMovieArray[indexpath.row]
+            let ItemToDelete = self.SavedMovieArray[indexPath.row]
         
             DatabaseService.sharedObj.deleteData(MovieToBeDeleted: ItemToDelete) { error in
                 if let error = error {
@@ -83,12 +85,14 @@ extension SavedMoviesViewController: UITableViewDelegate,UITableViewDataSource{
                 }
                 self.fetchMovies()
             }
-            
+
         }
         
         ShareAction.backgroundColor = .green
-        return [ShareAction,DeleteAction]
+        return UISwipeActionsConfiguration(actions: [ShareAction,DeleteAction])
     }
+    
+    
     
 
     
