@@ -116,7 +116,7 @@ class MovieDetailViewController: UIViewController{
         
         view.addSubview(MovieDescriptionTextBox)
         MovieDescriptionTextBox.translatesAutoresizingMaskIntoConstraints = false
-        MovieDescriptionTextBox.heightAnchor.constraint(equalToConstant: view.frame.size.height/5).isActive = true
+        MovieDescriptionTextBox.heightAnchor.constraint(equalToConstant: view.frame.size.height/4).isActive = true
         MovieDescriptionTextBox.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
         MovieDescriptionTextBox.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         MovieDescriptionTextBox.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
