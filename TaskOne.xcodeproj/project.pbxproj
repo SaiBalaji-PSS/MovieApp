@@ -23,6 +23,7 @@
 		E4A10616282408B200F03B85 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A10615282408B200F03B85 /* Constants.swift */; };
 		E4A1061828240ABF00F03B85 /* MovieAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A1061728240ABF00F03B85 /* MovieAPIResponse.swift */; };
 		E4A50B302824BF2600B3A15F /* YoutubeAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A50B2F2824BF2600B3A15F /* YoutubeAPIResponse.swift */; };
+		E4AC6993282617B900ADF1C7 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC6992282617B900ADF1C7 /* DatabaseService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		E4A10615282408B200F03B85 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E4A1061728240ABF00F03B85 /* MovieAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIResponse.swift; sourceTree = "<group>"; };
 		E4A50B2F2824BF2600B3A15F /* YoutubeAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeAPIResponse.swift; sourceTree = "<group>"; };
+		E4AC6992282617B900ADF1C7 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		F63527A51F6E0C355F45A059 /* Pods-TaskOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskOne.release.xcconfig"; path = "Target Support Files/Pods-TaskOne/Pods-TaskOne.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				E4A106122824085C00F03B85 /* NetworkService.swift */,
+				E4AC6992282617B900ADF1C7 /* DatabaseService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				E4A106132824085C00F03B85 /* NetworkService.swift in Sources */,
 				E4A10616282408B200F03B85 /* Constants.swift in Sources */,
 				E4A105F92823FBF300F03B85 /* TaskOne.xcdatamodeld in Sources */,
+				E4AC6993282617B900ADF1C7 /* DatabaseService.swift in Sources */,
 				E4A1060E2823FD2100F03B85 /* MovieDetailViewController.swift in Sources */,
 				E4A105EF2823FBF300F03B85 /* AppDelegate.swift in Sources */,
 				E4A105F12823FBF300F03B85 /* SceneDelegate.swift in Sources */,

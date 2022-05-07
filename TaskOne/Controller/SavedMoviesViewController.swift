@@ -19,10 +19,14 @@ class SavedMoviesViewController: UIViewController{
    
     private var SavedMovieArray = [Movie]()
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchMovies()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        fetchMovies()
+    
     }
     
     //MARK: - HELPERS
@@ -46,22 +50,27 @@ class SavedMoviesViewController: UIViewController{
 
 extension SavedMoviesViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return SavedMovieArray.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.CELL_ID) as? MovieCell{
-            cell.MoviePosterImageView.backgroundColor = .purple
-            cell.MovieTitleLabel.text = "HELLO"
-            cell.MovieRatingLabel.text = "0"
+            cell.updateCellWithSavedMovieData(MovieName: SavedMovieArray[indexPath.row].movieName, MoviePosterBinaryData: SavedMovieArray[indexPath.row].imageData,MovieRating: SavedMovieArray[indexPath.row].movieRating)
             return cell
         }
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150.0
+    }
+    
     func fetchMovies(){
         do{
            SavedMovieArray = try context.fetch(Movie.fetchRequest())
-            print("COUNT \(SavedMovieArray.count)")
+            //print("MOVIES \(SavedMovieArray.first?.movieRating)")
+            DispatchQueue.main.async {
+                self.MoviesTableView.reloadData()
+            }
         }
         catch{
             print(error)

@@ -67,14 +67,13 @@ class MovieCell: UITableViewCell{
         
         addSubview(MovieRatingLabel)
         MovieRatingLabel.translatesAutoresizingMaskIntoConstraints = false
-        MovieRatingLabel.centerYAnchor.constraint(equalTo: centerYAnchor,constant: 200).isActive = true
+        MovieRatingLabel.topAnchor.constraint(equalTo: MovieTitleLabel.bottomAnchor,constant: 10).isActive = true
         MovieRatingLabel.leftAnchor.constraint(equalTo: MoviePosterImageView.rightAnchor,constant: 40).isActive = true
-        MovieRatingLabel.widthAnchor.constraint(equalToConstant: frame.size.width).isActive = true
         
       
     }
     
-    func updateCell(MovieName: String?,MoviePosterURL: String?,Rating: Double?,ImageBinaryData: Data?){
+    func updateCell(MovieName: String?,MoviePosterURL: String?,Rating: Double?){
         
         if let MovieName = MovieName , let MoviePosterURL = MoviePosterURL , let Rating = Rating{
             
@@ -84,6 +83,16 @@ class MovieCell: UITableViewCell{
             self.MovieRatingLabel.text = "★\(Rating)"
             self.MoviePosterImageView.sd_setImage(with:POSTER_URL)
         }
+    }
+    
+    func updateCellWithSavedMovieData(MovieName: String?,MoviePosterBinaryData: Data?, MovieRating: Double?){
+        if let MovieName = MovieName  , let MoviePosterBinaryData = MoviePosterBinaryData, let MovieRating = MovieRating {
+            self.MovieTitleLabel.text = MovieName
+            self.MovieRatingLabel.text = "★\(MovieRating)"
+            self.MoviePosterImageView.image = UIImage(data: MoviePosterBinaryData)
+            
+        }
+        
     }
     
 }
