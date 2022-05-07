@@ -17,9 +17,12 @@ class SavedMoviesViewController: UIViewController{
         return tableview
     }()
    
+    private var SavedMovieArray = [Movie]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        fetchMovies()
     }
     
     //MARK: - HELPERS
@@ -53,5 +56,15 @@ extension SavedMoviesViewController: UITableViewDelegate,UITableViewDataSource{
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func fetchMovies(){
+        do{
+           SavedMovieArray = try context.fetch(Movie.fetchRequest())
+            print("COUNT \(SavedMovieArray.count)")
+        }
+        catch{
+            print(error)
+        }
     }
 }

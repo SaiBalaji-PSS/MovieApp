@@ -5,10 +5,13 @@
 //  Created by Sai Balaji on 05/05/22.
 //
 
+import CoreData
 import Foundation
 import SDWebImage
 import UIKit
 import WebKit
+
+let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
 class MovieDetailViewController: UIViewController{
     
@@ -156,8 +159,24 @@ class MovieDetailViewController: UIViewController{
         
     }
     
-    @objc
-    func watchListButtonPressed(){
-        print("Press")
+    
+    @objc func watchListButtonPressed(){
+        if let MovieName = MovieName , let MovieDescription = MovieDescription , let MovieRating = MovieRating , let JPEGData = PosterImageView.image?.jpegData(compressionQuality: 1.0) {
+            let WatchListedMovie = Movie(context: context)
+            WatchListedMovie.movieName = MovieName
+            WatchListedMovie.movieDescription = MovieDescription
+            WatchListedMovie.movieRating = MovieRating
+            WatchListedMovie.imageData = JPEGData
+            
+            do{
+                try context.save()
+            }
+            catch{
+                print(error)
+            }
+            
+        }
+        
+        
     }
 }
