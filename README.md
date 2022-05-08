@@ -17,9 +17,18 @@
 * Dark mode support (iOS 13+ required)
 
 ## How to run
+* Open the mac terminal
 * Clone the repo
-* Open TaskOne.xcworkspace in latest version of Xcode on a mac with internet connection
+```git clone https://github.com/SaiBalaji22/MovieApp.git```
+* Move into the project directory using terminal
+* Install the cocoapod dependencies by running the below command in terminal inside the project directory
+```pod install```
+
+* Open TaskOne.xcworkspace in latest version of Xcode on a mac with internet connection by running the below command in terminal
+``` open TaskOne.xcworkspace```
+
 * Wait for the dependencies to complete indexing
+
 * Build and Run the project in iPhone simulator(Not iPod) by pressing Command + R
 
 ## ScreenShots
