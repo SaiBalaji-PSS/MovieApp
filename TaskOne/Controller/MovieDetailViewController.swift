@@ -15,14 +15,13 @@ import WebKit
 
 class MovieDetailViewController: UIViewController{
     
-
+    //MARK: - PROPERTIES
     var MovieName: String?
     var MovieDescription: String?
     var MoviePosterURL: String?
     var MovieRating: Double?
     var MovieReleaseDate: String?
     private var MovieTrailerURL: String?
-    
     private var TrailerPreviewView: WKWebView = WKWebView()
     private var PosterImageView: UIImageView = {
         var ImageView = UIImageView()
@@ -79,13 +78,14 @@ class MovieDetailViewController: UIViewController{
         return button
     }()
     
+    //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         getMovieTrailer()
     }
     
-    
+    //MARK: - HELPERS
     func configureUI(){
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .systemBackground
@@ -135,6 +135,7 @@ class MovieDetailViewController: UIViewController{
         AddToWatchListButton.leftAnchor.constraint(equalTo: PosterImageView.rightAnchor).isActive = true
     }
     
+    //MARK: - GET MOVIE TRIALER URL AND LOAD THE WEBVIEW
     func getMovieTrailer(){
         if let MovieName = MovieName {
            print("INSIDE")

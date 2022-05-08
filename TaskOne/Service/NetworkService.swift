@@ -8,9 +8,11 @@
 import Foundation
 
 class NetworkService{
+    //MARK: - PROPERTIES
     static var SharedObject = NetworkService()
     private var session = URLSession(configuration: .default)
     
+    //MARK: - GETMOVIE INFO FROM TMDB
     func getMovies(name MovieName: String,onCompletion:@escaping([MovieData]?,Error?)->Void){
         
         guard let FormatedMovieName = MovieName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)  else{return}
@@ -41,9 +43,12 @@ class NetworkService{
         }
     }
     
+    //MARK: - GET MOVIE TRAILER URL FROM YOUTUBE
     func getMovieInfoFromYoutube(Query: String,onCompletion:@escaping([Item]?,Error?)->Void){
         guard let FormattedQuery = Query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return }
-        if let YOUTUBE_URL = URL(string:"https://youtube.googleapis.com/youtube/v3/search?q=\(FormattedQuery)&key=\(Constants.YOUTUBE_API_KEY)") {
+        if let YOUTUBE_URL =
+            URL(string:"\(Constants.YOUTUBE_BASE_URL)\(FormattedQuery)&key=\(Constants.YOUTUBE_API_KEY)"){
+            
             let task = session.dataTask(with: YOUTUBE_URL) { data, response, error in
                 if let error = error {
                     print(error.localizedDescription)
@@ -60,11 +65,7 @@ class NetworkService{
                 }
             }
             task.resume()
-            
-            
-            
-            
         }
-//https://youtube.googleapis.com/youtube/v3/search?q=\(Query)&key=\(Constants.YOUTUBE_API_KEY)
+
     }
 }

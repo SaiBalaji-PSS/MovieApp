@@ -19,6 +19,7 @@ class SavedMoviesViewController: UIViewController{
    
     private var SavedMovieArray = [Movie]()
     
+    //MARK: - LIFECYCLE
     override func viewWillAppear(_ animated: Bool) {
         fetchMovies()
     }
@@ -47,7 +48,7 @@ class SavedMoviesViewController: UIViewController{
     }
 }
 
-
+//MARK: - EXTENSION
 extension SavedMoviesViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return SavedMovieArray.count
@@ -99,6 +100,7 @@ extension SavedMoviesViewController: UITableViewDelegate,UITableViewDataSource{
     
 }
 
+//MARK: - EXTENSION
 extension SavedMoviesViewController{
     //Fetch data from CoreData
     func fetchMovies(){

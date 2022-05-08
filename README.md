@@ -7,29 +7,33 @@
 *  [YoutubeDataAPI](https://developers.google.com/youtube/v3) to fetch movie trailer video
 * CoreData framework to provide offline persistent storage.
 
-
+## Requirements
+* MacOS Monterey
+* Xcode 13.3
+* Cocoapods 
 ## Features
+* Easy to use native iOS UI
 * Search for the movies you wish to watch.
 * Know about the Movie rating,overview,release date.
-* Watch the movie trailer within the app
+* Watch the movie trailer within the app.
 * Add the movies to your watch list with persistent storage.
-* Share your watch list movies with your friends using social media(Whatsapp,iMessage,Twitter etc)
-* Dark mode support (iOS 13+ required)
+* Share your watch list movies with your friends using social media(Whatsapp,iMessage,Twitter etc).
+* Dark mode support (iOS 13+ required).
 
 ## How to run
-* Open the mac terminal
-* Clone the repo
+* Open the mac terminal.
+* Clone the repo.
 ```git clone https://github.com/SaiBalaji22/MovieApp.git```
 * Move into the project directory using terminal
-* Install the cocoapod dependencies by running the below command in terminal inside the project directory
+* Install the cocoapod dependencies by running the below command in terminal inside the project directory.
 ```pod install```
 
-* Open TaskOne.xcworkspace in latest version of Xcode on a mac with internet connection by running the below command in terminal
+* Open TaskOne.xcworkspace in latest version of Xcode on a mac with internet connection by running the below command in terminal.
 ``` open TaskOne.xcworkspace```
 
-* Wait for the dependencies to complete indexing
+* Wait for the dependencies to complete indexing.
 
-* Build and Run the project in iPhone simulator(Not iPod) by pressing Command + R
+* Build and Run the project in iPhone simulator(Not iPod) by pressing Command + R.
 
 ## ScreenShots
 <img width="600" height = "600" alt="export3DD64541-05C7-475E-96E5-0B172F7459D9" src="https://user-images.githubusercontent.com/51410810/167257550-67a560f3-c57c-4d54-8374-6403b041dfee.png">
